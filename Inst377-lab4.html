@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>INST377 - Lab 4</title>
+    <style>
+        body {
+            background-color: lightblue;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .section {
+            border: 2px solid white;
+            border-radius: 10px;
+            background-color: purple;
+            margin: 20px;
+            padding: 20px;
+            display: inline-block;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="main-heading">INST377 - Lab 4</h1>
+
+    <div class="section">
+        <form id="alertForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <button type="button" onclick="alertName()">Alert Me!</button>
+        </form>
+    </div>
+
+    <div class="section">
+        <button onclick="changeColor()">Change Color</button>
+    </div>
+
+    <div class="section">
+        <form id="textForm">
+            <label for="text">Text Tester:</label>
+            <input type="text" id="text" name="text">
+            <button type="button" onclick="validateText()">Validate Text</button>
+        </form>
+    </div>
+
+    <div class="section">
+        <button onclick="addText()">Add Text</button>
+    </div>
+
+    <script>
+        function alertName() {
+            const name = document.getElementById('name').value;
+            if (name) {
+                alert("Hi " + name + "!");
+            }
+        }
+
+        function changeColor() {
+            const currentColor = document.body.style.backgroundColor;
+            if (currentColor == 'lightblue') {
+                document.body.style.backgroundColor = 'lightgreen';
+            } else {
+                document.body.style.backgroundColor = 'lightblue';
+            }
+        }
+
+        function validateText() {
+            const text = document.getElementById('text').value;
+            const validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            if (validation.test(text)) {
+                alert("Special characters found!");
+            } else {
+                alert("Text is valid!");
+            }
+        }
+
+        function addText() {
+            const heading = document.getElementById('main-heading');
+            heading.innerText += " Add Text";
+        }
+    </script>
+
+</body>
+</html>
